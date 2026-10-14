@@ -1,0 +1,11 @@
+{
+  "name": "secureops",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["backend", "sample-app", "frontend"],
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node scripts/start.mjs",
+    "test": "npm test --workspace backend"
+  }
+}

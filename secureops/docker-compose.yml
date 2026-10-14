@@ -1,0 +1,16 @@
+# Stage 1: runs only the sample app. The backend and frontend run with npm (see README).
+services:
+  sample-app:
+    build: ./sample-app
+    image: secureops-sample:local
+    environment:
+      APP_VERSION: "1.0.0"
+      COMMIT_SHA: "local"
+      FAIL_HEALTH: "false"
+    ports:
+      - "4000:4000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:4000/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
